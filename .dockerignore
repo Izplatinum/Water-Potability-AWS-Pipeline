@@ -1,0 +1,8 @@
+venv/
+.git/
+__pycache__/
+*.pyc
+.terraform/
+terraform/.terraform/
+lambda_function.zip
+lambda_package/

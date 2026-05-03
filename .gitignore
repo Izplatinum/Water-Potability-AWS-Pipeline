@@ -1,0 +1,12 @@
+venv/
+__pycache__/
+*.pyc
+*.pkl
+.env
+terraform/.terraform/
+.terraform/
+*.tfstate
+*.tfstate.*
+lambda_function.zip
+lambda_package/
+*.csv
