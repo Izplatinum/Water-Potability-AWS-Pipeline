@@ -1,125 +1,167 @@
 # 💧 Water Potability Prediction Pipeline (AWS | ML | DevOps)
 
-## 🚀 Overview
-
-This project is a **production-ready, end-to-end machine learning pipeline** deployed on AWS.
-
-It predicts whether water is **potable or not** using a trained ML model and exposes both:
-
-- ✅ **Batch processing pipeline (S3 → Lambda)**
-- ✅ **Real-time API (API Gateway → Lambda)**
-- ✅ **Database persistence (RDS PostgreSQL)**
+Production-ready end-to-end machine learning pipeline deployed on AWS to predict water potability using real-time and batch processing.
 
 ---
 
 ## 🧠 Architecture
-      ┌──────────────┐
-      │   User/API   │
-      └──────┬───────┘
-             │
-    ┌────────▼────────┐
-    │  API Gateway    │
-    └────────┬────────┘
-             │
-    ┌────────▼────────┐
-    │ AWS Lambda      │
-    │ (Docker Image)  │
-    └────────┬────────┘
-             │
- ┌───────────▼───────────┐
- │  ML Model (Scikit)    │
- └───────────┬───────────┘
-             │             │
 
-┌─────────────▼─────────────┐
-│ Amazon S3 (Batch Data) │
-└─────────────┬─────────────┘
-│
-┌─────────────▼─────────────┐
-│ RDS PostgreSQL (Storage) │
-└───────────────────────────┘
+```text
+User/API → API Gateway → Lambda (Docker) → ML Model → RDS PostgreSQL
+                          ↓
+                  S3 (Batch Input)
+                          ↓
+                     Lambda Trigger
+                          ↓
+                     Predictions → S3 + RDS
+```
 
 ---
 
 ## ⚙️ Tech Stack
 
-- **Cloud:** AWS (Lambda, S3, API Gateway, ECR, RDS, IAM)
-- **DevOps:** Docker, Terraform, Ansible
-- **Data:** Python (Pandas, NumPy, Scikit-learn)
-- **Database:** PostgreSQL (RDS)
+* **Cloud:** AWS (Lambda, S3, API Gateway, RDS, IAM, ECR)
+* **DevOps:** Docker, Terraform, Ansible
+* **Data & ML:** Python (Pandas, NumPy, Scikit-learn)
+* **Database:** PostgreSQL (RDS)
 
 ---
 
-## 🔄 Features
+## 🚀 Features
 
-### 1. Batch Processing (S3 Trigger)
-- Upload CSV → S3
-- S3 triggers Lambda
-- Predictions generated
-- Results saved to S3
+### 🔄 Batch Processing (S3 Trigger)
 
-### 2. Real-Time API
-- POST request → API Gateway
-- Lambda runs model
-- Returns prediction instantly
-
-### 3. Database Storage
-- Predictions stored in **RDS PostgreSQL**
-- Enables analytics & monitoring
+* Upload CSV data to S3
+* Automatically triggers Lambda
+* Generates predictions at scale
+* Stores results in S3 and RDS
 
 ---
 
-## 📊 Example API Request
+### ⚡ Real-Time Prediction API
+
+* REST API exposed via API Gateway
+* Lambda processes input instantly
+* Returns prediction in real-time
+
+---
+
+### 🗄️ Data Persistence
+
+* Predictions stored in **RDS PostgreSQL**
+* Enables analytics and monitoring
+
+---
+
+## 📡 Example API Request
 
 ```bash
 curl -X POST https://YOUR_API_ENDPOINT \
-  -H "Content-Type: application/json" \
-  -d '{
-    "ph": 7.0,
-    "Hardness": 204.89,
-    "Solids": 20791.32,
-    "Chloramines": 7.3,
-    "Sulfate": 368.5,
-    "Conductivity": 564.3,
-    "Organic_carbon": 10.3,
-    "Trihalomethanes": 86.9,
-    "Turbidity": 2.96
-  }'
+-H "Content-Type: application/json" \
+-d '{
+  "ph": 7.0,
+  "Hardness": 204.89,
+  "Solids": 20791.32,
+  "Chloramines": 7.3,
+  "Sulfate": 368.5,
+  "Conductivity": 564.3,
+  "Organic_carbon": 10.3,
+  "Trihalomethanes": 86.9,
+  "Turbidity": 2.96
+}'
+```
 
-Response:
+---
+
+## 📊 Example Response
+
+```json
 {
   "prediction": 0,
   "prediction_label": "Not Potable"
 }
+```
 
-📁 Project Structure
+---
+
+## 📁 Project Structure
+
+```text
 water-potability-aws-pipeline/
 │
-├── src/                # ML training & prediction
-├── lambda/             # Lambda handler
-├── terraform/          # Infrastructure as Code
-├── ansible/            # Automation scripts
-├── Dockerfile          # Lambda container
+├── src/           # ML training & preprocessing
+├── lambda/        # Lambda handler (prediction logic)
+├── terraform/     # Infrastructure as Code
+├── ansible/       # Automation scripts
+├── Dockerfile     # Lambda container image
 ├── requirements.txt
 └── README.md
+```
 
-🧪 Machine Learning
-Model: Random Forest Classifier
-Dataset: Water quality dataset
-Handles missing values
-Outputs classification + label
+---
 
-🚀 Deployment
-1. Train model
+## 🧪 Machine Learning
+
+* Model: **Random Forest Classifier**
+* Dataset: Water quality dataset
+* Handles missing values and feature preprocessing
+* Outputs classification + label (Potable / Not Potable)
+
+---
+
+## ☁️ Deployment Workflow
+
+```bash
+# Train model
 python src/train_model.py
 
-2. Build Docker image
+# Build Docker image
 docker build -t water-potability-lambda .
 
-3. Push to ECR
+# Push to ECR
 docker push <your-ecr-repo>
 
-4. Deploy with Terraform
+# Deploy infrastructure
 cd terraform
 terraform init
 terraform apply
+```
+
+---
+
+## 🔥 Key Highlights
+
+* Built scalable ML pipeline with **serverless architecture**
+* Combined **batch + real-time processing**
+* Integrated **API Gateway + Lambda for low-latency inference**
+* Used **Terraform & Ansible for infrastructure automation**
+* Designed **production-ready cloud ML system**
+
+---
+
+## 📸 Screenshots (Add yours)
+
+* API Gateway endpoint
+* Lambda execution
+* S3 data flow
+* RDS database
+* Architecture diagram
+
+---
+
+## 📚 What I Learned
+
+* Deploying machine learning models in production on AWS
+* Designing event-driven serverless architectures
+* Integrating APIs with ML pipelines
+* Using Docker + Lambda for scalable inference
+* Managing infrastructure using Terraform
+
+---
+
+## 👨‍💻 Author
+
+**Hizedihar Djato Bougonou**
+
+* LinkedIn: https://linkedin.com/in/hizedihar-djato-bougonou
+* GitHub: https://github.com/Izplatinum
