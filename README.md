@@ -139,16 +139,6 @@ terraform apply
 
 ---
 
-## 📸 Screenshots (Add yours)
-
-* API Gateway endpoint
-* Lambda execution
-* S3 data flow
-* RDS database
-* Architecture diagram
-
----
-
 ## 📚 What I Learned
 
 * Deploying machine learning models in production on AWS
