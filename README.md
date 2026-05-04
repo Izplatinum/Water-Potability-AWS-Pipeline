@@ -1,10 +1,10 @@
-# 💧 Water Potability Prediction Pipeline (AWS | ML | DevOps)
+#  Water Potability Prediction Pipeline (AWS | ML | DevOps)
 
 Production-ready end-to-end machine learning pipeline deployed on AWS to predict water potability using real-time and batch processing.
 
 ---
 
-## 🧠 Architecture
+##  Architecture
 
 ```text
 User/API → API Gateway → Lambda (Docker) → ML Model → RDS PostgreSQL
@@ -18,7 +18,7 @@ User/API → API Gateway → Lambda (Docker) → ML Model → RDS PostgreSQL
 
 ---
 
-## ⚙️ Tech Stack
+##  Tech Stack
 
 * **Cloud:** AWS (Lambda, S3, API Gateway, RDS, IAM, ECR)
 * **DevOps:** Docker, Terraform, Ansible
@@ -27,9 +27,9 @@ User/API → API Gateway → Lambda (Docker) → ML Model → RDS PostgreSQL
 
 ---
 
-## 🚀 Features
+##  Features
 
-### 🔄 Batch Processing (S3 Trigger)
+###  Batch Processing (S3 Trigger)
 
 * Upload CSV data to S3
 * Automatically triggers Lambda
@@ -38,7 +38,7 @@ User/API → API Gateway → Lambda (Docker) → ML Model → RDS PostgreSQL
 
 ---
 
-### ⚡ Real-Time Prediction API
+###  Real-Time Prediction API
 
 * REST API exposed via API Gateway
 * Lambda processes input instantly
@@ -46,14 +46,14 @@ User/API → API Gateway → Lambda (Docker) → ML Model → RDS PostgreSQL
 
 ---
 
-### 🗄️ Data Persistence
+###  Data Persistence
 
 * Predictions stored in **RDS PostgreSQL**
 * Enables analytics and monitoring
 
 ---
 
-## 📡 Example API Request
+##  Example API Request
 
 ```bash
 curl -X POST https://YOUR_API_ENDPOINT \
@@ -73,7 +73,7 @@ curl -X POST https://YOUR_API_ENDPOINT \
 
 ---
 
-## 📊 Example Response
+##  Example Response
 
 ```json
 {
@@ -84,7 +84,7 @@ curl -X POST https://YOUR_API_ENDPOINT \
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```text
 water-potability-aws-pipeline/
@@ -100,7 +100,7 @@ water-potability-aws-pipeline/
 
 ---
 
-## 🧪 Machine Learning
+##  Machine Learning
 
 * Model: **Random Forest Classifier**
 * Dataset: Water quality dataset
@@ -109,7 +109,7 @@ water-potability-aws-pipeline/
 
 ---
 
-## ☁️ Deployment Workflow
+##  Deployment Workflow
 
 ```bash
 # Train model
@@ -129,7 +129,7 @@ terraform apply
 
 ---
 
-## 🔥 Key Highlights
+##  Key Highlights
 
 * Built scalable ML pipeline with **serverless architecture**
 * Combined **batch + real-time processing**
@@ -139,7 +139,7 @@ terraform apply
 
 ---
 
-## 📚 What I Learned
+##  What I Learned
 
 * Deploying machine learning models in production on AWS
 * Designing event-driven serverless architectures
@@ -149,7 +149,7 @@ terraform apply
 
 ---
 
-## 👨‍💻 Author
+##  Author
 
 **Hizedihar Djato Bougonou**
 
